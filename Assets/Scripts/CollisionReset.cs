@@ -10,7 +10,7 @@ public class CollisionReset : MonoBehaviour
     private void Start()
     {
         m_collider = GetComponent<CircleCollider2D>();
-        m_disableTime = GetComponentInParent<Snake>().m_attackRate;
+        m_disableTime = 0.5f;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
