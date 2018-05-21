@@ -37,7 +37,7 @@ GameObject:
   - component: {fileID: 114571608396228644}
   - component: {fileID: 50305715294831614}
   - component: {fileID: 58043551489182394}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Bunny
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -81,7 +81,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1555532355813074}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 6.7, y: -3.56, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4426861063584184}
@@ -167,7 +167,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_speed: 600
-  m_jumpForce: 15
+  m_jumpForce: 18
   m_jumpResistance: 3
   m_fallMultiplier: 3
   m_groundTouch: {fileID: 4078502056913454}
