@@ -5,13 +5,15 @@ using UnityEngine;
 public class Snake : MonoBehaviour
 {
     [SerializeField] [Range(1.0f, 100.0f)] float m_detectionRange = 10.0f;
+    [SerializeField] [Range(1.0f, 100.0f)] public float m_attackDamage = 25.0f;
     [SerializeField] [Range(1.0f, 100.0f)] float m_attackRange = 5.0f;
-    [SerializeField] [Range(0.0f, 10.0f)] float m_attackRate = 1.0f;
+    [SerializeField] [Range(0.0f, 10.0f)] public float m_attackRate = 1.0f;
     [SerializeField] [Range(0.0f, 10.0f)] public float m_flipRate = 3.0f;
     [SerializeField] [Range(1.0f, 500.0f)] public float m_headSpeed = 100.0f;
     [SerializeField] [Range(1.0f, 50.0f)] float m_bobForce = 2.0f;
     [SerializeField] [Range(0.0f, 20.0f)] float m_bobRate = 0.1f;
     [SerializeField] [Range(1.0f, 500.0f)] public float m_jumpForce = 7.0f;
+    [SerializeField] Transform m_collision = null;
     [SerializeField] LayerMask m_groundMask = 0;
     [SerializeField] List<Transform> m_points = null;
 
@@ -39,6 +41,7 @@ public class Snake : MonoBehaviour
 
     private void Update()
     {
+        m_collision.position = m_points[0].position;
         OnGround = Physics2D.OverlapCircle(m_points[0].position, 0.3f, m_groundMask);
         m_attackTime += Time.deltaTime;
         m_flipTime += Time.deltaTime;

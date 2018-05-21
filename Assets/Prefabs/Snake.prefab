@@ -154,6 +154,23 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1791626880290536
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4392436544441102}
+  - component: {fileID: 58691153913936326}
+  - component: {fileID: 114099828009618554}
+  m_Layer: 0
+  m_Name: Collision
+  m_TagString: Snake
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!4 &4088492634393596
 Transform:
   m_ObjectHideFlags: 1
@@ -193,6 +210,19 @@ Transform:
   m_Father: {fileID: 4494508511776926}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4392436544441102
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1791626880290536}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.25, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4494508511776926}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4471033638884238
 Transform:
   m_ObjectHideFlags: 1
@@ -213,7 +243,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1088095198156918}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.51, y: -3.54, z: 0}
+  m_LocalPosition: {x: 5.44, y: -4.06, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4184116248067020}
@@ -223,6 +253,7 @@ Transform:
   - {fileID: 4723817268394350}
   - {fileID: 4471033638884238}
   - {fileID: 4114416892792154}
+  - {fileID: 4392436544441102}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -430,6 +461,21 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.1
+--- !u!58 &58691153913936326
+CircleCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1791626880290536}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 1
 --- !u!58 &58750018837763440
 CircleCollider2D:
   m_ObjectHideFlags: 1
@@ -475,6 +521,17 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.1
+--- !u!114 &114099828009618554
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1791626880290536}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d095830e2d6c3348ad47fdeb06b898f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114490869345931176
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -487,13 +544,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_detectionRange: 10
+  m_attackDamage: 25
   m_attackRange: 5
   m_attackRate: 2
-  m_flipRate: 3
-  m_headSpeed: 100
-  m_bobForce: 3
+  m_flipRate: 1
+  m_headSpeed: 150
+  m_bobForce: 2.5
   m_bobRate: 0.12
   m_jumpForce: 5
+  m_collision: {fileID: 4392436544441102}
   m_groundMask:
     serializedVersion: 2
     m_Bits: 256
