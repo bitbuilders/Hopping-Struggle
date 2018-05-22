@@ -18,6 +18,7 @@ public class Snake : MonoBehaviour
     [SerializeField] List<Transform> m_points = null;
 
     public StateMachine<Snake> m_stateMachine;
+    public AudioSource m_audioSource;
     LineRenderer m_lineRenderer;
     public GameObject m_target;
     float m_bobTime = 0.0f;
@@ -30,6 +31,7 @@ public class Snake : MonoBehaviour
     void Start()
     {
         m_lineRenderer = GetComponentInChildren<LineRenderer>();
+        m_audioSource = GetComponent<AudioSource>();
         m_stateMachine = new StateMachine<Snake>();
         m_stateMachine.AddState(new AttackState(this), "Attack");
         m_stateMachine.AddState(new WanderState(this), "Wander");
@@ -186,6 +188,7 @@ public class AttackState : State<Snake>
         Quaternion jumpAngle = Quaternion.AngleAxis(45.0f * mult, Vector3.forward);
         Vector2 force = (jumpAngle * direction.normalized) * m_owner.m_jumpForce;
         m_owner.Jump(force);
+        m_owner.m_audioSource.Play();
 
         m_owner.UpdateState();
     }

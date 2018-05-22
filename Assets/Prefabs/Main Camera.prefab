@@ -661,7 +661,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_direction: 3
-  m_distanceReset: 40
+  m_distanceReset: 60
   m_target: {fileID: 0}
   m_min: {fileID: 4392457675800904}
   m_max: {fileID: 4658376000533784}

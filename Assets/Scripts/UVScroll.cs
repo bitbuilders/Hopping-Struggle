@@ -64,7 +64,7 @@ public class UVScroll : MonoBehaviour
         for (int i = 0; i < m_trees.Count; ++i)
         {
             Vector2 range = (m_max.position - m_min.position);
-            Vector2 pos = ((Vector3)m_startPosition - m_target.transform.position) * 0.35f + (Vector3)m_treeStartPositions[i];
+            Vector2 pos = ((Vector3)m_startPosition - m_target.transform.position) * 0.15f + (Vector3)m_treeStartPositions[i];
             if (pos.x >= m_max.position.x)
             {
                 pos.x = m_min.position.x;

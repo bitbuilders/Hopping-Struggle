@@ -49,6 +49,8 @@ TextureImporter:
     21300088: tf_jungle_tileset_44
     21300090: tf_jungle_tileset_45
     21300092: tf_jungle_tileset_46
+    21300094: tf_jungle_tileset_47
+    21300096: tf_jungle_tileset_48
   externalObjects: {}
   serializedVersion: 5
   mipmaps:
@@ -1090,13 +1092,53 @@ TextureImporter:
         width: 22
         height: 14
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
       spriteID: 6fbb3868ceca2d645bedd8b6dea90221
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tf_jungle_tileset_47
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 241
+        width: 16
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 07a6de2403a776341a9e662f64bab938
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tf_jungle_tileset_48
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 242
+        width: 16
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 00f48d5b32b21fd44ae9f05b569f1455
       vertices: []
       indices: 
       edges: []

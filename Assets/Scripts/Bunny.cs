@@ -9,22 +9,30 @@ public class Bunny : Entity
     [SerializeField] [Range(1.0f, 100.0f)] float m_jumpForce = 15.0f;
     [SerializeField] [Range(1.0f, 50.0f)] float m_jumpResistance = 3.0f;
     [SerializeField] [Range(1.0f, 50.0f)] float m_fallMultiplier = 3.0f;
+    [SerializeField] AudioClip m_hurt = null;
+    [SerializeField] AudioClip m_jump = null;
     [SerializeField] Transform m_groundTouch = null;
-    [SerializeField] Transform m_checkpoint = null;
     [SerializeField] LayerMask m_groundMask = 0;
+    [SerializeField] string m_currentRoom = null;
 
+    AudioSource m_audioSource;
     Rigidbody2D m_rigidbody;
     Animator m_animator;
     Vector3 m_startingScale;
+    public Vector2 m_checkpoint;
+    public bool invincible = false;
     
     public bool OnGround { get; private set; }
+    public bool Alive { get { return Health > 0.0f; } }
 
     private void Start()
     {
+        m_audioSource = GetComponent<AudioSource>();
         m_rigidbody = GetComponent<Rigidbody2D>();
         m_animator = GetComponentInChildren<Animator>();
         m_startingScale = GetComponentsInChildren<Transform>()[1].localScale;
         Health = m_health;
+        m_checkpoint = transform.position;
     }
 
     void Update()
@@ -36,6 +44,8 @@ public class Bunny : Entity
         {
             m_rigidbody.AddForce(Vector2.up * m_jumpForce, ForceMode2D.Impulse);
             m_animator.SetTrigger("Jump");
+            m_audioSource.clip = m_jump;
+            m_audioSource.Play();
         }
 
         if (Health <= 0.0f)
@@ -78,7 +88,7 @@ public class Bunny : Entity
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Snake"))
+        if (collision.CompareTag("Snake") && !invincible)
         {
             Health -= collision.GetComponentInParent<Snake>().m_attackDamage;
             Vector2 direction = transform.position - collision.transform.position;
@@ -87,6 +97,9 @@ public class Bunny : Entity
 
             Vector2 force = jumpAngle * direction.normalized * 10.0f;
             m_rigidbody.AddForce(force, ForceMode2D.Impulse);
+
+            m_audioSource.clip = m_hurt;
+            m_audioSource.Play();
         }
     }
 
@@ -116,7 +129,8 @@ public class Bunny : Entity
 
     private IEnumerator DelayedRespawn()
     {
+        TransitionManager.Instance.PlayTransition(m_currentRoom, 2.0f, false);
         yield return new WaitForSeconds(1.0f);
-        transform.position = m_checkpoint.position;
+        transform.position = m_checkpoint;
     }
 }
